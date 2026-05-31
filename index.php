@@ -21,11 +21,18 @@ $result = $conn->query("SELECT * FROM posts ORDER BY created_at DESC");
 
     <h2><?php echo $row['title']; ?></h2>
 
-    <p><?php echo $row['content']; ?></p>
+<p><?php echo $row['content']; ?></p>
 
-    <small><?php echo $row['created_at']; ?></small>
+<small><?php echo $row['created_at']; ?></small>
 
-    <br><br>
+<br>
+<a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
+
+<br>
+
+<a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+
+<br><br>
 
 <?php } ?>
 
