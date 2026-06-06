@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
 include 'db.php';
 
 $result = $conn->query("SELECT * FROM posts ORDER BY created_at DESC");
@@ -12,7 +18,14 @@ $result = $conn->query("SELECT * FROM posts ORDER BY created_at DESC");
 <body>
 
 <h1>My Blog</h1>
+<p>
+Welcome,
+<?php echo $_SESSION['user']; ?>
+</p>
 
+<a href="logout.php">
+Logout
+</a>
 <a href="create.php">Create New Post</a>
 
 <hr>
